@@ -1,0 +1,48 @@
+PROJECT_NAME           = "MyCPU FUSE Project"
+PROJECT_BRIEF          = "FUSE-based emulator of a simple CPU device tree"
+PROJECT_NUMBER         = 0.1.0
+OUTPUT_DIRECTORY       = docs/build
+CREATE_SUBDIRS         = NO
+
+OUTPUT_LANGUAGE        = English
+USE_MDFILE_AS_MAINPAGE = README.md
+
+INPUT                  = README.md emulator tests
+FILE_PATTERNS          = *.py *.md *.hpp *.cpp
+RECURSIVE              = YES
+
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = YES
+
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+
+GENERATE_TREEVIEW      = YES
+FULL_SIDEBAR           = YES
+
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+GENERATE_XML           = NO
+GENERATE_MAN           = NO
+GENERATE_RTF           = NO
+
+MARKDOWN_SUPPORT       = YES
+AUTOLINK_SUPPORT       = YES
+
+HAVE_DOT               = NO
+CALL_GRAPH             = NO
+CALLER_GRAPH           = NO
+CLASS_DIAGRAMS         = NO
+
+STRIP_FROM_PATH        =

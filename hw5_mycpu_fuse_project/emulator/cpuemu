@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+import sys
+sys.dont_write_bytecode = True
+
+import argparse
+from fuse import FUSE
+
+import cpuemufs
+
+
+def main():
+    parser = argparse.ArgumentParser(description="CPU driver emulator")
+    parser.add_argument(
+        "--units",
+        type=int,
+        default=4,
+        required=False,
+        help="the number of cores"
+    )
+    parser.add_argument(
+        "mountpoint",
+        type=str,
+        help="mountpoint of device tree"
+    )
+    parser.add_argument(
+        "-f",
+        "--foreground",
+        action="store_true",
+        default=False,
+        required=False,
+        help="start in foreground"
+    )
+    args = parser.parse_args()
+
+    if args.units <= 0:
+        raise SystemExit("units must be greater than 0")
+
+    FUSE(
+        cpuemufs.CpuEmu(args.units),
+        args.mountpoint,
+        foreground=args.foreground,
+        direct_io=True,
+        auto_unmount=True
+    )
+
+
+if __name__ == "__main__":
+    main()
